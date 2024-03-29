@@ -22,7 +22,7 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
         
-        <button onclick="registerUser">Register</button>
+        <button onclick="registerUser()">Register</button> // Added missing onclick event handler
     </form>
     <script type="module">
         // Import the functions you need from the SDKs you need
@@ -34,12 +34,12 @@
       
         // Your web app's Firebase configuration
         const firebaseConfig = {
-          apiKey: "AIzaSyDF7liA6vz2xbshahIqErwXQmQeayiX_7U",
-          authDomain: "routes-83b64.firebaseapp.com",
-          projectId: "routes-83b64",
-          storageBucket: "routes-83b64.appspot.com",
-          messagingSenderId: "765705096004",
-          appId: "1:765705096004:web:5cbe8fe54f88a1fa176511"
+          apiKey: "YOUR_API_KEY",
+          authDomain: "YOUR_AUTH_DOMAIN",
+          projectId: "YOUR_PROJECT_ID",
+          storageBucket: "YOUR_STORAGE_BUCKET",
+          messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+          appId: "YOUR_APP_ID"
         };
       
         // Initialize Firebase
@@ -54,8 +54,8 @@
         let surname = document.getElementById("surname");
         let country = document.getElementById("country");
 
-        let registerUser = evt => {
-            evt.preventDefault();
+        let registerUser = () => { // Modified function to prevent default form submission behavior
+            event.preventDefault();
             createUserWithEmailAndPassword(auth, email.value, password.value)
             .then((userCredential) => {
                 // Signed in 
