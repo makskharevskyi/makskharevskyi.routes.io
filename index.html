@@ -44,7 +44,7 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
 
-        const db = getDatabase();
+        const db = getDatabase(app);
         const auth = getAuth(app);
 
         let email = document.getElementById("email");
@@ -73,6 +73,5 @@
             });
         }
     </script>
-    <script src = "script/register.js"></script>
 </body>
 </html>
