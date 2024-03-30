@@ -22,7 +22,7 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
         
-        <button onclick="registerUser()">Register</button>
+        <button onclick="registerUser(event)">Register</button>
     </form>
     <script type="module">
         // Import the functions you need from the SDKs you need
@@ -53,7 +53,7 @@
         let surname = document.getElementById("surname");
         let country = document.getElementById("country");
 
-        let registerUser = () => { // Modified function to prevent default form submission behavior
+        let registerUser = (event) => { // Modified function to prevent default form submission behavior
             event.preventDefault();
             createUserWithEmailAndPassword(auth, email.value, password.value)
             .then((userCredential) => {
@@ -72,6 +72,7 @@
                 console.log(errorMessage);
             });
         }
+        window.registerUser = registerUser;
     </script>
 </body>
 </html>
